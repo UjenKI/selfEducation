@@ -1,0 +1,15 @@
+header{
+    background: rgb(187, 168, 63);
+    padding: 10px;
+}
+.header__wrapper{
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+}
+.header__wrapper h1{
+    margin-left: 50%;
+}
+.logo__wrapper{
+    max-width: 80px;
+}
