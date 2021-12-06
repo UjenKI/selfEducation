@@ -26,7 +26,7 @@ const App = (props) => {
                 {/* <Route exact path='/homePage' render={() => <HomePage state={props.state.profilePage}/>}/> */}
 
                 <Route exact path='/chatPage' element={<ChatPage state={props.state.dialogsPage}/>} />
-                <Route exact path='/homePage' element={<HomePage state={props.state.profilePage} addPost={ props.addPost } updatePostText={ props.updatePostText }/>} />
+                <Route exact path='/homePage' element={<HomePage state = {props.state.profilePage} dispatch = { props.dispatch }/>} />
                 <Route exact path='/music' element={<Music />} />
                 <Route exact path='/news' element={<News />} />
                 <Route exact path='/settings' element={<Settings />} />

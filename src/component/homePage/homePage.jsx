@@ -11,8 +11,7 @@ const HomePage = (props) => {
                 <Profile state={props.state.profile}/>
                 <AllPosts 
                     state={props.state.profile} 
-                    addPost={ props.addPost }
-                    updatePostText={ props.updatePostText }/>
+                    dispatch = { props.dispatch }/>
             </div>
         </div>
     )

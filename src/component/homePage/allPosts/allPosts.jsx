@@ -11,13 +11,14 @@ const AllPosts = (props) => {
     let postValue = React.createRef();
 
     let addPost = () => {
-        props.addPost();
-        postValue.current.value = props.p
+        props.dispatch({type: 'ADD-POST'})
+        // postValue.current.value = props.p
     }
 
     let postTextValue = () => {
         let postText = postValue.current.value;
-        props.updatePostText(postText);
+        let action = {type: 'UPDATE-POST-TEXT', postText:postText};
+        props.dispatch(action);
     }
 
     return (
