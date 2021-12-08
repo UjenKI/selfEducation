@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatPageItem from './chatPageItem';
 import Message from './message';
+import { addMessageActionCreator, messageTextValueActionCreator } from '../../redux/dialogsReducer';
 // import { NavLink } from 'react-router-dom';
 
 import style from './chatPage.module.css';
@@ -13,7 +14,14 @@ const ChatPage = (props) => {
     let msgValue = React.createRef();
 
     let createMsg = () => {
-        console.log(msgValue.current.value);
+        console.log(props)
+        props.dispatch(addMessageActionCreator());
+    }
+
+    let updateMessageText = (e) => {
+        let messageText = e.target.value;
+        let action = messageTextValueActionCreator(messageText);
+        props.dispatch(action);
     }
 
     return (
@@ -28,7 +36,7 @@ const ChatPage = (props) => {
                 <div className={style.chat__item}>
                    { messages }
                    <div className={style.messageHere}>
-                        <textarea ref={ msgValue } name="message" cols="30" rows="10"></textarea>
+                        <textarea onChange={ updateMessageText } value={ props.state.newMessageText } ref={ msgValue }></textarea>
                         <button onClick={ createMsg } className={ style.sendMsgBtn }>Send</button>
                     </div>
                 </div>
