@@ -4,6 +4,7 @@ import Post from './post';
 import { addPostActionCreater, postTextValueActionCreater } from '../../../redux/profileReducer';
 
 const AllPosts = (props) => {
+//  console.log(props)
     let posts = props.state.posts.map( post => <Post text={post.postText} likeCount={post.likeCount}/>)
 
     let postValue = React.createRef();
@@ -14,7 +15,7 @@ const AllPosts = (props) => {
 
     let postTextValue = () => {
         let postText = postValue.current.value;
-        console.log(postText)
+        // console.log(postText)
         let action = postTextValueActionCreater(postText);
         props.dispatch(action);
     }

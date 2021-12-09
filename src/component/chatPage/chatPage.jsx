@@ -2,7 +2,6 @@ import React from 'react';
 import ChatPageItem from './chatPageItem';
 import Message from './message';
 import { addMessageActionCreator, messageTextValueActionCreator } from '../../redux/dialogsReducer';
-// import { NavLink } from 'react-router-dom';
 
 import style from './chatPage.module.css';
 
