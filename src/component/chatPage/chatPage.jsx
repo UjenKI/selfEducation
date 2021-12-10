@@ -7,9 +7,11 @@ import style from './chatPage.module.css';
 
 
 const ChatPage = (props) => {
-    console.log(props)
-    let chats = props.state.chats.map( chat => <ChatPageItem id={chat.id} chatName={chat.name} />);
-    let messages = props.state.messages.map( msg => <Message message={msg.text}/>);
+
+    let state = props.dialogsPage;
+
+    let chats = state.chats.map( chat => <ChatPageItem id={chat.id} chatName={chat.name} />);
+    let messages = state.messages.map( msg => <Message message={msg.text}/>);
 
     let msgValue = React.createRef();
 
@@ -34,7 +36,7 @@ const ChatPage = (props) => {
                 <div className={style.chat__item}>
                    { messages }
                    <div className={style.messageHere}>
-                        <textarea onChange={ onUpdateMessageText } value={ props.state.newMessageText } ref={ msgValue }></textarea>
+                        <textarea onChange={ onUpdateMessageText } value={ state.newMessageText } ref={ msgValue }></textarea>
                         <button onClick={ onCreateMsg } className={ style.sendMsgBtn }>Send</button>
                     </div>
                 </div>

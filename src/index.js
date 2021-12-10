@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
@@ -7,20 +8,21 @@ import store from './redux/redux-store';
 import reportWebVitals from './reportWebVitals';
 
 
-let reRenderComponent = (state) => {
+let reRenderComponent = () => {
     ReactDOM.render(
         <React.StrictMode>
-          <App state={ state } dispatch={ store.dispatch.bind(store) } store = { store }/>
+          <Provider store={store}>
+            <App />
+          </Provider>
         </React.StrictMode>,
         document.getElementById('root')
       );
 }
 
-reRenderComponent(store.getState());
+reRenderComponent();
 
 store.subscribe(() => {
-  let state = store.getState();
-  reRenderComponent(state);
+  reRenderComponent();
 });
 
 reportWebVitals();

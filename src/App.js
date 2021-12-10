@@ -20,9 +20,9 @@ const App = (props) => {
           <Sidebar />
           <div className='wrapper__container container'>
               <Routes>
-                <Route exact path='/' element={<HomePage state={props.state.profilePage} addPost={ props.addPost } updatePostText={ props.updatePostText }/>}/>
+                <Route exact path='/' element={<HomePage store = { props.store } />}/>
 
-                <Route exact path='/chatPage' element={<ChatPageContainer store = { props.store }/>} />
+                <Route exact path='/chatPage' element={<ChatPageContainer />} />
                 <Route exact path='/homePage' element={<HomePage store = { props.store } />} />
                 <Route exact path='/music' element={<Music />} />
                 <Route exact path='/news' element={<News />} />

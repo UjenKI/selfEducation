@@ -8,8 +8,8 @@ const HomePage = (props) => {
         <div className={style.content__wrapper}>
             <div className={style.content__item}>
                 <h2>HomePage</h2>
-                <Profile state={props.store}/>
-                <AllPostsContainer store = { props.store } />
+                <Profile />
+                <AllPostsContainer />
             </div>
         </div>
     )
