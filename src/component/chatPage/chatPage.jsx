@@ -7,20 +7,19 @@ import style from './chatPage.module.css';
 
 
 const ChatPage = (props) => {
+    console.log(props)
     let chats = props.state.chats.map( chat => <ChatPageItem id={chat.id} chatName={chat.name} />);
     let messages = props.state.messages.map( msg => <Message message={msg.text}/>);
 
     let msgValue = React.createRef();
 
-    let createMsg = () => {
-        console.log(props)
-        props.dispatch(addMessageActionCreator());
+    let onCreateMsg = () => {
+        props.createMsg();
     }
 
-    let updateMessageText = (e) => {
+    let onUpdateMessageText = (e) => {
         let messageText = e.target.value;
-        let action = messageTextValueActionCreator(messageText);
-        props.dispatch(action);
+        props.updateMessageText(messageText);
     }
 
     return (
@@ -35,8 +34,8 @@ const ChatPage = (props) => {
                 <div className={style.chat__item}>
                    { messages }
                    <div className={style.messageHere}>
-                        <textarea onChange={ updateMessageText } value={ props.state.newMessageText } ref={ msgValue }></textarea>
-                        <button onClick={ createMsg } className={ style.sendMsgBtn }>Send</button>
+                        <textarea onChange={ onUpdateMessageText } value={ props.state.newMessageText } ref={ msgValue }></textarea>
+                        <button onClick={ onCreateMsg } className={ style.sendMsgBtn }>Send</button>
                     </div>
                 </div>
             </div>
