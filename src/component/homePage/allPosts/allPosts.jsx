@@ -4,7 +4,7 @@ import Post from './post';
 const AllPosts = (props) => {
     console.log(props.profilePage.posts)
 
-    let posts = props.profilePage.posts.map( post => <Post text={post.postText} likeCount={post.likeCount}/>)
+    let posts = props.profilePage.posts.map( post => <Post text={post.postText} key={post.id} likeCount={post.likeCount}/>)
 
     let postValue = React.createRef();
 
