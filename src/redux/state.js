@@ -4,7 +4,6 @@ import dialogsPageReducer from './dialogsReducer';
 let store = {
     _state: {
         profilePage: {
-            profile: {
                 posts: [
                     {id: 1, postText: "hi, it's my first post)", likeCount: 1},
                     {id: 2, postText: "HAve some news for u!", likeCount: 3},
@@ -12,7 +11,6 @@ let store = {
                     {id: 4, postText: "hi, it's my last post)", likeCount: 5},
                 ],
                 postText: ''
-            }
         },
         dialogsPage: {
             chats: [

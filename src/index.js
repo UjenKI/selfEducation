@@ -20,9 +20,4 @@ let reRenderComponent = () => {
 }
 
 reRenderComponent();
-
-store.subscribe(() => {
-  reRenderComponent();
-});
-
 reportWebVitals();

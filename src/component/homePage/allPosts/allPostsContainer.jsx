@@ -14,7 +14,7 @@ import { addPostActionCreater, postTextValueActionCreater } from '../../../redux
 //     let postTextValue = (postText) => {
 //         let action = postTextValueActionCreater(postText);
 //         props.store.dispatch(action);
-//     }
+//     } 
 
 //     return (
 //         <AllPosts addPost={addPost} postTextValue={postTextValue} state={state}/>
