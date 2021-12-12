@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes, NavLink} from 'react-router-dom';
 
 import Header from './component/header';
 import HomePage from './component/homePage';
+import UsersContainer from './component/users/UsersContainer';
 import Sidebar from './component/sidebar';
 import ChatPageContainer from './component/chatPage/chatPageContainer';
 import Music from './component/music';
@@ -21,7 +22,7 @@ const App = (props) => {
           <div className='wrapper__container container'>
               <Routes>
                 <Route exact path='/' element={<HomePage store = { props.store } />}/>
-
+                <Route exact path='/users' element={ <UsersContainer /> } />
                 <Route exact path='/chatPage' element={<ChatPageContainer />} />
                 <Route exact path='/homePage' element={<HomePage store = { props.store } />} />
                 <Route exact path='/music' element={<Music />} />
