@@ -29,12 +29,12 @@ const Users = (props) => {
                     <img src={ user.photos.small !== null ? user.photos.small : userPhoto} alt="img"/>
                 </div>
                 <div className={ style.userInfo }>
-                    <p>{user.name}</p>
-                    <p>{user.status}</p>
+                    <p>Name: {user.name}</p>
+                    <p>Status: {user.status !== null ? user.status : 'smauraj'}</p>
                     {/* <p>{user.location.country}</p>
                     <p>{user.location.city}</p> */}
-                    {user.followed ? <button onClick = { () => {props.unFollow(user.id)} }>Unfollow</button>
-                                   : <button onClick = { () => {props.follow(user.id)} }>Follow</button>}
+                    {user.followed ? <button className={style.follow_btn} onClick = { () => {props.unFollow(user.id)} }>Unfollow</button>
+                                   : <button className={style.follow_btn} onClick = { () => {props.follow(user.id)} }>Follow</button>}
                 </div>
             </li>
         )
