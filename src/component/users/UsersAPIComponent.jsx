@@ -4,24 +4,22 @@ import * as axios from 'axios';
 
 import Users from './Users';
 
-import userPhoto from '../../img/Tony.png';
-
-import style from './Users.module.css';
-
 export default class UsersAPIComponent extends Component {
     constructor(props){
         super(props);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(res => {
             this.props.setUsers( res.data.items );
             this.props.setUsersTotalCount( res.data.totalCount );
+            this.props.setToggleFetching( false );
         })
     }
 
     onPageChenged = (currentPage) => {
         this.props.setCurrentPage(currentPage);
+        this.props.setToggleFetching( true );
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`).then(res => {
             this.props.setUsers( res.data.items );
-            // console.log(this.props.users)
+            this.props.setToggleFetching( false );
         })
     }
 
@@ -35,6 +33,7 @@ export default class UsersAPIComponent extends Component {
                 users = { this.props.users }
                 follow = { this.props.follow }
                 unFollow = { this.props.unFollow }
+                isFetching =  { this.props.isFetching }
             />
         )
     }

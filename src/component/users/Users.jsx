@@ -2,9 +2,13 @@ import React from 'react';
 
 import userPhoto from '../../img/Tony.png';
 
+import Loader from '../loader';
+
 import style from './Users.module.css';
 
 let Users = (props) => {
+
+    const loader = props.isFetching ? <Loader /> : null;
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     pagesCount = 12;
@@ -41,10 +45,11 @@ let Users = (props) => {
         <div className={style.usersWrapper}>
             <h2>USERS LIST</h2>
             <ul className={style.paginationList}>
-                {paginationElem}
+                { paginationElem }
             </ul>
             <ul className={style.usersList}>
-                {userList}
+                { loader }
+                { userList }
             </ul>
         </div>
     )
