@@ -11,6 +11,9 @@ const Sidebar = () => {
                     <NavLink to="/homePage">Profile</NavLink>
                 </li>
                 <li className={style.menu__item}>
+                    <NavLink to="/users">Users</NavLink>
+                </li>
+                <li className={style.menu__item}>
                     <NavLink to="/chatPage">Messages</NavLink>
                 </li>
                 <li className={style.menu__item}>

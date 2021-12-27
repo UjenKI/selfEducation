@@ -9,7 +9,6 @@ import style from './Users.module.css';
 let Users = (props) => {
 
     const loader = props.isFetching ? <Loader /> : null;
-
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     pagesCount = 12;
 
