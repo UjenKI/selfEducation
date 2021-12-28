@@ -22,7 +22,6 @@ import { addPostActionCreater, postTextValueActionCreater } from '../../../redux
 // }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         profilePage: state.profilePage
     }

@@ -2,7 +2,6 @@ import React from 'react';
 import style from './allPosts.module.css';
 import Post from './post';
 const AllPosts = (props) => {
-    console.log(props.profilePage.posts)
 
     let posts = props.profilePage.posts.map( post => <Post text={post.postText} key={post.id} likeCount={post.likeCount}/>)
 

@@ -5,6 +5,7 @@ import userPhoto from '../../img/Tony.png';
 import Loader from '../loader';
 
 import style from './Users.module.css';
+import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
 
@@ -25,9 +26,11 @@ let Users = (props) => {
     const userList = props.users.map((user) => {
         return (
             <li key={user.id} className={style.userItem}>
-                <div className={style.photoWrapper}>
-                    <img src={user.photos.small !== null ? user.photos.small : userPhoto} alt="img" />
-                </div>
+                <NavLink to={'/profile/' + user.id}>
+                    <div className={style.photoWrapper}>
+                        <img src={user.photos.small !== null ? user.photos.small : userPhoto} alt="img" />
+                    </div>
+                </NavLink>
                 <div className={style.userInfo}>
                     <p>Name: {user.name}</p>
                     <p>Status: {user.status !== null ? user.status : 'smauraj'}</p>

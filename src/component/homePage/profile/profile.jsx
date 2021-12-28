@@ -1,19 +1,26 @@
 import React from 'react';
 
 import avatar from '../../../img/anonim.jpeg';
+import Loader from '../../loader';
 
 import style from './profile.module.css';
 
-const Profile = () => {
+const Profile = (props) => {
+    if(!props.profile){
+        return <Loader />
+    }
     return (
         <div className={style.profile__wrapper}>
             <h2>Profile</h2>
             <div className={style.profile__item}>
                 <div className={style.img__profile}>
-                    <img src={avatar} alt="avatar"/>
+                    <img src={props.profile.photos.small} alt="avatar"/>
+                </div>
+                <div className={style.fullName}>
+                    <p>{props.profile.fullName}</p>
                 </div>
                 <div className={style.profile__description}>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus provident vitae tempore deleniti. Sint nisi dolorem minus fuga, rem id perspiciatis ullam quidem illo, aspernatur vero in consequuntur quos cumque.</p>
+                    <p>{props.profile.aboutMe}</p>
                 </div>
             </div>
         </div>
